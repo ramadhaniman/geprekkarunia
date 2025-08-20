@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ayam Geprek Karunia</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <a href="#home" class="navbar-logo">
+          <img src="asset/Logo.png" alt=""/>
+        </a>
+
+        <div class="nav-menu" id="nav-menu">
+          <div>
+            <ul class="nav-list">
+              <li><a href="#home" class="nav-link">Beranda</a></li>
+              <li><a href="#menu" class="nav-link">Menu</a></li>
+              <li><a href="#testimonial" class="nav-link">Testimoni</a></li>
+              <li><a href="#contact" class="nav-link">Kontak</a></li>
+            </ul>
+          </div>
+
+          <div class="nav-close" id="nav-close" onclick="closeClick()">
+            <img src="asset/close.png" alt="" />
+          </div>          
+        </div>
+
+        <div class="nav-extra">
+          <a href="" class="nav-cart"><img src="asset/cart.png" alt=""></a>
+          <a href="/login" class="nav-profile"><img src="asset/profile.png" alt=""></a>
+
+          <div class="nav-toggle" id="nav-toggle" onclick="toggleClick()">
+            <img src="asset/more.png" alt="" />
+          </div>
+        </div>
+        
+      </nav>
+    </header>
+
+    <section class="hero" id="home">
+      <main class="hero-content">
+        <h2>Sensasi Pedas yang Bikin Balik Lagi</h2>
+        <p>
+          Lagi cari makan enak dan pedas? <br />
+          Coba sensasi ayam geprek dengan sambal pilihan, pecel lele hangat,
+          tempe goreng, dan es teh manis segar. Semua diolah dari bahan segar
+          dan bumbu rumahan. Cocok buat santap siang atau malam bareng teman dan
+          keluarga.
+        </p>
+      </main>
+    </section>
+
+    <section class="product" id="menu">
+      <h2>Menu</h2>
+
+      <div class="product-list">
+        <div class="product-card">
+          <h3>Ayam Geprek</h3>
+          <img src="Asset/Ayam Geprek.jpeg" alt="Ayam Geprek" />
+          <p>
+            Ayam goreng crispy yang digeprek hingga renyah, dipadukan dengan sambal pedas gurih yang menggugah selera. Disajikan dengan nasi putih hangat, lengkap dengan lalapan selada dan irisan tomat segar.
+          </p>
+          <h3>Harga Rp 24.000</h3>
+
+          <a href="">Masukan Keranjang</a>
+          <a href="">Beli</a>
+
+        </div>
+
+        <div class="product-card">
+          <h3>Pecel Lele</h3>
+          <img src="Asset/Pecel Lele.jpeg" alt="Pecel Lele" />
+          <p>
+            Lele goreng renyah dengan daging lembut di dalamnya, disajikan hangat bersama nasi putih pulen, lalapan segar, tahu tempe goreng, kerupuk gurih, dan sambal pedas yang bikin nagih.
+          </p>
+          <h3>Harga Rp 22.000</h3>
+
+          <a href="">Masukan Keranjang</a>
+          <a href="">Beli</a>
+        </div>
+
+        <div class="product-card">
+          <h3>Es Teh Manis</h3>
+          <img src="Asset/Es Teh.jpg" alt="Es Teh" />
+          <p>
+            Minuman yang selalu jadi favorit, teh pilihan disajikan dingin dengan es batu melimpah. Rasa manis yang pas berpadu dengan kesegaran teh, cocok jadi teman makan dan penghilang dahaga.
+          </p>
+          <h3>Harga Rp 5.000</h3>
+
+          <a href="">Masukan Keranjang</a>
+          <a href="">Beli</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonial" id="testimonial">
+      <h2>Kata Mereka</h2>
+
+      <div class="testimonial-list">
+        <div class="testimonial-wrapper">
+          @foreach ($testimonials as $t)
+            <div class="testimonial-card">
+                <div class="testimonial-img">
+                    <img src="{{ asset($t['foto']) }}" alt="Foto {{ $t['nama'] }}" />
+                </div>
+                <div class="testimonial-content">
+                    <p>
+                        <span class="quote">❝</span>
+                        {{ $t['pesan'] }}
+                        <span class="quote">❞</span>
+                    </p>
+                    <h3>{{ $t['nama'] }} <span>{{ $t['pekerjaan'] }}</span></h3>
+                </div>
+            </div>
+          @endforeach      
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="contact-sec">
+        <div class="contact-map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1124.2567856413657!2d106.82718554530943!3d-6.453093779313754!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69ea0532c93235%3A0x2f7994e42ca991c9!2sJl.%20Raya%20Kp.%20Sawah%20No.9%2C%20Jatimulya%2C%20Kec.%20Cilodong%2C%20Kota%20Depok%2C%20Jawa%20Barat%2016920!5e0!3m2!1sid!2sid!4v1753800517430!5m2!1sid!2sid"
+            width="600"
+            height="450"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+
+        <div class="contact-form">
+          <h2>Hubungi Kami</h2>
+          <form id="contact-form">
+            <label for="nama">Nama:</label>
+            <input type="text" id="nama" name="nama" />
+
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" />
+
+            <label for="pesan">Pesan:</label>
+            <textarea id="pesan" name="pesan"></textarea>
+
+            <p id="error-msg" style="color: red"></p>
+            <button type="submit">Kirim</button>
+          </form>
+        </div>
+
+        <div class="contact-map-mobile">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1124.2567856413657!2d106.82718554530943!3d-6.453093779313754!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69ea0532c93235%3A0x2f7994e42ca991c9!2sJl.%20Raya%20Kp.%20Sawah%20No.9%2C%20Jatimulya%2C%20Kec.%20Cilodong%2C%20Kota%20Depok%2C%20Jawa%20Barat%2016920!5e0!3m2!1sid!2sid!4v1753800517430!5m2!1sid!2sid"
+            width="600"
+            height="450"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-sec">
+        <div class="footer-logo">
+          <img src="Asset/Logo.png" alt="" />
+
+          <div class="footer-sosmed">
+            <a href="https://www.facebook.com/" target="_blank"
+              ><img src="Asset/facebookw.png" alt=""
+            /></a>
+            <a href="https://www.tiktok.com/" target="_blank"
+              ><img src="Asset/tiktokw.png" alt=""
+            /></a>
+            <a href="https://www.instagram.com/" target="_blank"
+              ><img src="Asset/instagramw.png" alt=""
+            /></a>
+          </div>
+        </div>
+
+        <div class="footer-contact">
+          <h3>CONTACT US</h3>
+          <p>ayamgeprek@karunia.com</p>
+          <p>Jl. Raya Kp. Sawah No. 9, Cilodong, Depok.</p>
+          <p>+62 8211 555 1234</p>
+        </div>
+
+        <div class="footer-subs">
+          <h3>SUBSCRIBE</h3>
+          <p>Enter your email to get notified about our promotion</p>
+          <div class="subs-input">
+            <input
+              type="email"
+              id="email-input"
+              placeholder="contoh@email.com"
+            />
+            <a href="#" id="submit-subs"
+              ><img src="Asset/email red.png" alt=""
+            /></a>
+          </div>
+          <p class="footer-error-msg" id="email-error"></p>
+        </div>
+      </div>
+
+      <p>
+        &copy; 2025 Ayam Geprek Karunia. Jl. Raya Kp. Sawah No. 9, Cilodong,
+        Depok.
+      </p>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
+
