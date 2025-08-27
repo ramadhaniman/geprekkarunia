@@ -57,42 +57,19 @@
       <h2>Menu</h2>
 
       <div class="product-list">
-        <div class="product-card">
-          <h3>Ayam Geprek</h3>
-          <img src="Asset/Ayam Geprek.jpeg" alt="Ayam Geprek" />
-          <p>
-            Ayam goreng crispy yang digeprek hingga renyah, dipadukan dengan sambal pedas gurih yang menggugah selera. Disajikan dengan nasi putih hangat, lengkap dengan lalapan selada dan irisan tomat segar.
-          </p>
-          <h3>Harga Rp 24.000</h3>
+        @foreach ($products as $product)
+          <div class="product-card">
+            <h3>{{$product->title}}</h3>
+            <img src="{{$product->image}}" alt="" />
+            <p>
+              {{$product->description}}
+            </p>
+            <h3>Harga Rp <span>{{$product->price}}</span></h3>
 
-          <a href="">Masukan Keranjang</a>
-          <a href="">Beli</a>
-
-        </div>
-
-        <div class="product-card">
-          <h3>Pecel Lele</h3>
-          <img src="Asset/Pecel Lele.jpeg" alt="Pecel Lele" />
-          <p>
-            Lele goreng renyah dengan daging lembut di dalamnya, disajikan hangat bersama nasi putih pulen, lalapan segar, tahu tempe goreng, kerupuk gurih, dan sambal pedas yang bikin nagih.
-          </p>
-          <h3>Harga Rp 22.000</h3>
-
-          <a href="">Masukan Keranjang</a>
-          <a href="">Beli</a>
-        </div>
-
-        <div class="product-card">
-          <h3>Es Teh Manis</h3>
-          <img src="Asset/Es Teh.jpg" alt="Es Teh" />
-          <p>
-            Minuman yang selalu jadi favorit, teh pilihan disajikan dingin dengan es batu melimpah. Rasa manis yang pas berpadu dengan kesegaran teh, cocok jadi teman makan dan penghilang dahaga.
-          </p>
-          <h3>Harga Rp 5.000</h3>
-
-          <a href="">Masukan Keranjang</a>
-          <a href="">Beli</a>
-        </div>
+            <a href="">Masukan Keranjang</a>
+            <a href="">Beli</a>
+          </div>
+        @endforeach
       </div>
     </section>
 
@@ -100,23 +77,23 @@
       <h2>Kata Mereka</h2>
 
       <div class="testimonial-list">
-        <div class="testimonial-wrapper">
-          @foreach ($testimonials as $t)
-            <div class="testimonial-card">
-                <div class="testimonial-img">
-                    <img src="{{ asset($t['foto']) }}" alt="Foto {{ $t['nama'] }}" />
-                </div>
-                <div class="testimonial-content">
-                    <p>
-                        <span class="quote">❝</span>
-                        {{ $t['pesan'] }}
-                        <span class="quote">❞</span>
-                    </p>
-                    <h3>{{ $t['nama'] }} <span>{{ $t['pekerjaan'] }}</span></h3>
-                </div>
-            </div>
-          @endforeach      
-        </div>
+        
+        @foreach ($testimonies as $testimony)
+          <div class="testimonial-card">
+              <div class="testimonial-img">
+                  <img src="{{ $testimony->image }}" alt="Foto {{ $testimony->name }}" />
+              </div>
+              <div class="testimonial-content">
+                  <p>
+                      <span class="quote">❝</span>
+                      {{ $testimony->testimony }}
+                      <span class="quote">❞</span>
+                  </p>
+                  <h3>{{ $testimony->name }} <span>{{ $testimony->job }}</span></h3>
+              </div>
+          </div>
+        @endforeach     
+        
       </div>
     </section>
 
