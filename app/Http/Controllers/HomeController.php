@@ -48,7 +48,7 @@ class HomeController extends Controller
     {
         Product::create([
             'title' => $request->name,
-            'image' => $request->image,
+            'image' => 'Asset/'.$request->image,
             'description' => $request->description,
             'price' => $request->price,
         ]);
