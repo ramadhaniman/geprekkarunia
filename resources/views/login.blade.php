@@ -17,14 +17,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/loginStyle.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    @include('components.nav')
     <div class="login-container">
         <div class="login-card">
-            <a href="/">
-                <img src="asset/Logo.png" alt=""/>
-            </a>
-
+            
             <h2>Selamat datang Karunian!</h2>
             <h3>Silahkan Masuk terlebih dulu</h3>
 

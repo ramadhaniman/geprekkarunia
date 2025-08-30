@@ -3,9 +3,10 @@
 <head>
     <title>Dashboard Admin</title>
     <link rel="stylesheet" href="css/dashboardstyle.css" />
+    <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-
+    @include('components.nav')
     <!-- <section>
         <h1>Selamat Datang di Dashboard Admin!</h1>
         <form action="{{ route('home.store') }}" method="POST">

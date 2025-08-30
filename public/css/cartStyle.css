@@ -1,0 +1,156 @@
+.cart-container {
+    font-family: Arial, sans-serif;
+    background: #fff;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    padding-top: 9rem;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+    display: flex;
+    gap: 30px;
+}
+
+/* Steps */
+.steps {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.step {
+    flex: 1;
+    padding: 12px;
+    text-align: center;
+    border-radius: 25px;
+    font-weight: bold;
+    background: #f0f4f7;
+    color: #555;
+    margin: 0 5px;
+}
+
+.step.active {
+    background: #e53935;
+    color: #fff;
+}
+
+/* Left Cart */
+.cart {
+    flex: 2;
+}
+
+.cart h3 {
+    margin-bottom: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    text-align: left;
+    padding: 12px 8px;
+    border-bottom: 1px solid #eee;
+}
+
+.empty {
+    padding: 20px;
+    text-align: center;
+    color: #777;
+}
+
+.continue {
+    margin-top: 20px;
+    display: inline-block;
+    color: #000;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* Right Sidebar */
+.sidebar {
+    flex: 1;
+    border: 1px solid #eee;
+    padding: 20px;
+    border-radius: 10px;
+    background: #fafafa;
+}
+
+.sidebar h4 {
+    margin: 0 0 15px 0;
+}
+
+.subtotal {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+textarea {
+    width: 100%;
+    min-height: 60px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    resize: none;
+    font-family: inherit;
+}
+
+.options {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.option {
+    flex: 1;
+    border: 2px solid #ddd;
+    padding: 15px;
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.option:hover {
+    border-color: #e53935;
+}
+
+.option.active {
+    border-color: #e53935;
+    background: #f3e2e2;
+}
+
+.option img {
+    display: block;
+    margin: 0 auto 10px;
+    height: 40px;
+}
+
+.btn {
+    width: 100%;
+    padding: 15px;
+    background: #e8ecf0;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    color: #555;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #e53935;
+    color: #fff;
+}

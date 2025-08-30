@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\CartController;
 
 
 
@@ -39,3 +40,7 @@ Route::post('/products', [HomeController::class, 'store'])->name('products.store
 Route::get('/products/{id}/edit', [HomeController::class, 'edit'])->name('products.edit');
 Route::put('/products/{id}', [HomeController::class, 'update'])->name('products.update');
 Route::delete('/products/{id}', [HomeController::class, 'destroy'])->name('products.destroy');
+
+Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+Route::post('/cart/add/{id}', [CartController::class, 'add'])->name('cart.add');
+Route::delete('/cart/remove/{id}', [CartController::class, 'remove'])->name('cart.remove');
