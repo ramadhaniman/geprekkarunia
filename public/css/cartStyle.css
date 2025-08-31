@@ -154,3 +154,43 @@ textarea {
     background: #e53935;
     color: #fff;
 }
+
+/* Form Update Qty */
+.form-update {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.qty-input {
+    width: 60px;
+    text-align: center;
+}
+
+/* Update Button */
+.btn-update {
+    background: #4caf50;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-update:hover {
+    background: #45a049;
+}
+
+/* Delete Button */
+.btn-delete {
+    background: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-delete:hover {
+    background: darkred;
+}

@@ -36,11 +36,11 @@
                       <td>{{ $item['name'] }}</td>
                       <td>
                         <!-- Form update qty -->
-                        <form action="{{ route('cart.update', $id) }}" method="POST" style="display:flex; align-items:center; gap:5px;">
+                        <form action="{{ route('cart.update', $id) }}" method="POST" class="form-update">
                           @csrf
                           @method('PUT')
-                          <input type="number" name="qty" value="{{ $item['qty'] }}" min="1" style="width:60px; text-align:center;">
-                          <button type="submit" style="background:#4CAF50; color:white; border:none; padding:5px 10px; border-radius:5px; cursor:pointer;">
+                          <input type="number" name="qty" value="{{ $item['qty'] }}" min="1" class="qty-input">
+                          <button type="submit" class="btn-update">
                             Update
                           </button>
                         </form>
@@ -50,7 +50,7 @@
                         <form action="{{ route('cart.remove', $id) }}" method="POST">
                           @csrf
                           @method('DELETE')
-                          <button type="submit" style="background:red; color:white; border:none; padding:5px 10px; border-radius:5px; cursor:pointer;">
+                          <button type="submit" class="btn-delete">
                             Hapus
                           </button>
                         </form>
@@ -71,8 +71,7 @@
         <h4>Order Subtotal</h4>
         <div class="subtotal">
           Rp {{ number_format(collect($cart)->sum(fn($i) => $i['price'] * $i['qty']), 0, ',', '.') }}
-          </div>
-
+        </div>
 
         <textarea placeholder="Add Order Note (Optional)"></textarea>
 
@@ -91,6 +90,7 @@
       </div>
     </div>
   </section>
-  
+
+  <script src="js/cart.js"></script>
 </body>
 </html>
