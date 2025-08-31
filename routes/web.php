@@ -8,24 +8,24 @@ use App\Http\Controllers\CartController;
 
 
 
-Route::get('/', function () {
-    return view('home');
-});
+// Route::get('/', function () {
+//     return view('home');
+// });
 
-Route::get('/login', function(){
-    return view ('login');
-});
+// Route::get('/login', function(){
+//     return view ('login');
+// });
 
-Route::get('/register', function(){
-    return view ('register');
-});
+// Route::get('/register', function(){
+//     return view ('register');
+// });
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/register', [RegisterController::class, 'create'])->name('register.create');
 Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
 
-Route::get('/login', [LoginController::class, 'create'])->name('login.create');
+Route::get('/login', [LoginController::class, 'create'])->name('login');
 Route::post('/login', [LoginController::class, 'store'])->name('login.store');
 
 // Route::get('/dashboard', function () {
@@ -43,8 +43,10 @@ Route::delete('/products/{id}', [HomeController::class, 'destroy'])->name('produ
 
 
 
-Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
-Route::post('/cart/add/{id}', [CartController::class, 'add'])->name('cart.add');
-Route::put('/cart/update/{id}', [CartController::class, 'update'])->name('cart.update');
-Route::delete('/cart/remove/{id}', [CartController::class, 'remove'])->name('cart.remove');
-Route::post('/checkout/{id}', [CartController::class, 'buy'])->name('checkout');
+Route::middleware('auth')->group(function () {
+    Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+    Route::post('/cart/add/{id}', [CartController::class, 'add'])->name('cart.add');
+    Route::put('/cart/update/{id}', [CartController::class, 'update'])->name('cart.update');
+    Route::delete('/cart/remove/{id}', [CartController::class, 'remove'])->name('cart.remove');
+    Route::post('/checkout/{id}', [CartController::class, 'buy'])->name('checkout');
+});

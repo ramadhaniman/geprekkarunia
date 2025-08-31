@@ -36,14 +36,25 @@
             <h3>Harga Rp <span>{{$product->price}}</span></h3>
 
             <div class="actions">
-              <form action="{{ route('cart.add', $product->id) }}" method="POST">
-                  @csrf
-                  <button type="submit">Masukan Keranjang</button>
-              </form>
-              <form action="{{ route('checkout', $product->id) }}" method="POST">
-                  @csrf
-                  <button type="submit">Beli</button>
-              </form>
+              @auth
+                <!-- Jika sudah login -->
+                <form action="{{ route('cart.add', $product->id) }}" method="POST">
+                    @csrf
+                    <button type="submit">Masukan Keranjang</button>
+                </form>
+                <form action="{{ route('checkout', $product->id) }}" method="POST">
+                    @csrf
+                    <button type="submit">Beli</button>
+                </form>
+              @else
+                <!-- Jika belum login -->
+                <a href="{{ route('login') }}">
+                    <button type="button">Masukan Keranjang</button>
+                </a>
+                <a href="{{ route('login') }}">
+                    <button type="button">Beli</button>
+                </a>
+              @endauth
             </div>
           </div>
         @endforeach

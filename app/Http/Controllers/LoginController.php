@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -20,22 +21,32 @@ class LoginController extends Controller
             'password' => 'required',
         ]);
 
-        $email = $request->email;
-        $password = $request->password;
-
-        if ($email === 'admin@karunia.com' && $password === 'admin123') {
-            return redirect('/dashboard');
+        // Admin hardcode login
+        if ($request->email === 'admin@karunia.com' && $request->password === 'admin123') {
+            // Bisa langsung login pakai Auth::loginUsingId jika admin ada di DB
+            $admin = User::where('email', 'admin@karunia.com')->first();
+            if ($admin) {
+                Auth::login($admin);
+            }
+            return redirect('/dashboard')->with('success', 'Login sebagai Admin');
         }
 
+        // Cek user dari database
         $user = User::where('email', $request->email)->first();
 
         if ($user && Hash::check($request->password, $user->password)) {
-            
-            return back()->with('success', 'login berhasil, data ada di database');
-            // return view('dashboardadmin');
+            Auth::login($user); // <-- INI YANG PENTING
+            return redirect('/')->with('success', 'Login berhasil');
         } else {
-            
-            return back()->with('error', 'kamu siapa? Daftar dulu ya :)');
+            return back()->with('error', 'Email atau password salah');
         }
+    }
+
+    public function destroy(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/login')->with('success', 'Anda sudah logout');
     }
 }
