@@ -35,8 +35,16 @@
             </p>
             <h3>Harga Rp <span>{{$product->price}}</span></h3>
 
-            <a href="">Masukan Keranjang</a>
-            <a href="">Beli</a>
+            <div class="actions">
+              <form action="" method="POST">
+                  @csrf
+                  <button type="submit">Masukan Keranjang</button>
+              </form>
+              <form action="" method="POST">
+                  @csrf
+                  <button type="submit">Beli</button>
+              </form>
+            </div>
           </div>
         @endforeach
       </div>
