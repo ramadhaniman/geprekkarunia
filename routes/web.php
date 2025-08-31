@@ -41,6 +41,10 @@ Route::get('/products/{id}/edit', [HomeController::class, 'edit'])->name('produc
 Route::put('/products/{id}', [HomeController::class, 'update'])->name('products.update');
 Route::delete('/products/{id}', [HomeController::class, 'destroy'])->name('products.destroy');
 
+
+
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 Route::post('/cart/add/{id}', [CartController::class, 'add'])->name('cart.add');
+Route::put('/cart/update/{id}', [CartController::class, 'update'])->name('cart.update');
 Route::delete('/cart/remove/{id}', [CartController::class, 'remove'])->name('cart.remove');
+Route::post('/checkout/{id}', [CartController::class, 'buy'])->name('checkout');

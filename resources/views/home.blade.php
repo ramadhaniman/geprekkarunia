@@ -36,11 +36,11 @@
             <h3>Harga Rp <span>{{$product->price}}</span></h3>
 
             <div class="actions">
-              <form action="" method="POST">
+              <form action="{{ route('cart.add', $product->id) }}" method="POST">
                   @csrf
                   <button type="submit">Masukan Keranjang</button>
               </form>
-              <form action="" method="POST">
+              <form action="{{ route('checkout', $product->id) }}" method="POST">
                   @csrf
                   <button type="submit">Beli</button>
               </form>

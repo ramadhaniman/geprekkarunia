@@ -27,23 +27,43 @@
               <th>ITEMS</th>
               <th>QTY</th>
               <th>SUBTOTAL</th>
+              <th>ACTION</th>
             </tr>
           </thead>
           <tbody>
               @forelse ($cart as $id => $item)
                   <tr>
                       <td>{{ $item['name'] }}</td>
-                      <td>{{ $item['qty'] }}</td>
+                      <td>
+                        <!-- Form update qty -->
+                        <form action="{{ route('cart.update', $id) }}" method="POST" style="display:flex; align-items:center; gap:5px;">
+                          @csrf
+                          @method('PUT')
+                          <input type="number" name="qty" value="{{ $item['qty'] }}" min="1" style="width:60px; text-align:center;">
+                          <button type="submit" style="background:#4CAF50; color:white; border:none; padding:5px 10px; border-radius:5px; cursor:pointer;">
+                            Update
+                          </button>
+                        </form>
+                      </td>
                       <td>Rp {{ number_format($item['price'] * $item['qty'], 0, ',', '.') }}</td>
+                      <td><!-- Tombol hapus item -->
+                        <form action="{{ route('cart.remove', $id) }}" method="POST">
+                          @csrf
+                          @method('DELETE')
+                          <button type="submit" style="background:red; color:white; border:none; padding:5px 10px; border-radius:5px; cursor:pointer;">
+                            Hapus
+                          </button>
+                        </form>
+                      </td>
                   </tr>
               @empty
                   <tr>
-                      <td class="empty" colspan="3">Your cart is empty</td>
+                      <td class="empty" colspan="4">Your cart is empty</td>
                   </tr>
               @endforelse
           </tbody>
         </table>
-        <a href="#" class="continue">Continue Shopping ></a>
+        <a href="{{ url('/#menu') }}" class="continue">Continue Shopping ></a>
       </div>
 
       <!-- Sidebar -->
