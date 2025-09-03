@@ -11,11 +11,7 @@
 
   <section class="cart-container">
     <!-- Steps -->
-    <div class="steps">
-      <div class="step active">1. Cart</div>
-      <div class="step">2. Order Info</div>
-      <div class="step">3. Payment</div>
-    </div>
+    @include('components.cartsteps')
 
     <div class="container">
       <!-- Cart Section -->
@@ -86,7 +82,11 @@
           </div>
         </div>
 
-        <button class="btn">Continue</button>
+        <form action="{{ route('order.store') }}" method="POST">
+          @csrf
+          <button class="btn" type="submit">Continue</button>
+        </form>
+        
       </div>
     </div>
   </section>

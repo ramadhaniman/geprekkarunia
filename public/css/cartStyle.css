@@ -1,4 +1,6 @@
-.cart-container {
+.cart-container,
+.order-container,
+.checkout-container {
     font-family: Arial, sans-serif;
     background: #fff;
     margin: 0;

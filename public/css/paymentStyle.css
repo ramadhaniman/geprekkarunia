@@ -1,0 +1,111 @@
+.payment-wrapper {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 24px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* ORDER SUMMARY */
+.order-summary,
+.delivery-section {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 20px;
+    align-self: flex-start;
+}
+
+h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+.order-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.order-item p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.order-item small {
+    font-size: 12px;
+    color: #777;
+}
+
+.order-total {
+    margin-top: 20px;
+    border-top: 1px solid #eee;
+    padding-top: 12px;
+}
+
+.order-total div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+}
+
+.order-total strong {
+    font-size: 16px;
+}
+
+/* DELIVERY */
+.delivery-section p {
+    margin: 6px 0;
+    font-size: 14px;
+}
+
+.delivery-section strong {
+    font-size: 14px;
+}
+
+.delivery-price {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 14px 0;
+}
+
+/* PAYMENT OPTIONS */
+.payment-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.payment-option {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 14px;
+}
+
+.payment-option:hover {
+    border-color: #999;
+}
+
+/* BUTTONS */
+.btn {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background: #c57a7a;
+    cursor: pointer;
+    margin-top: 14px;
+    font-size: 14px;
+    color: white;
+}
+
+.btn:hover {
+    background: #e53935;
+}

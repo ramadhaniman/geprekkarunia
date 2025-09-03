@@ -27,6 +27,8 @@ Route::post('/register', [RegisterController::class, 'store'])->name('register.s
 
 Route::get('/login', [LoginController::class, 'create'])->name('login');
 Route::post('/login', [LoginController::class, 'store'])->name('login.store');
+Route::post('/logout', [LoginController::class, 'destroy'])->name('logout');
+
 
 // Route::get('/dashboard', function () {
 //     return view('dashboardadmin');
@@ -50,3 +52,14 @@ Route::middleware('auth')->group(function () {
     Route::delete('/cart/remove/{id}', [CartController::class, 'remove'])->name('cart.remove');
     Route::post('/checkout/{id}', [CartController::class, 'buy'])->name('checkout');
 });
+
+Route::get('/order', [CartController::class, 'order'])->name('cart.order');
+
+Route::post('/order/store', [CartController::class, 'store'])->name('order.store');
+Route::get('/order/{id}', [CartController::class, 'info'])->name('order.info');
+
+
+Route::get('/payment', [CartController::class, 'payment'])->name('payment.checkout');
+
+Route::post('/orderinfo/store', [\App\Http\Controllers\OrderController::class, 'store'])->name('orderinfo.store');
+

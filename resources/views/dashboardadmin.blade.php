@@ -7,33 +7,7 @@
 </head>
 <body>
     @include('components.nav')
-    <!-- <section>
-        <h1>Selamat Datang di Dashboard Admin!</h1>
-        <form action="{{ route('home.store') }}" method="POST">
-            @csrf
-            <div class="form-group">
-                <label for="name">Nama Menu</label>
-                <input type="text" id="name" name="name" required>
-            </div>
-            <div class="form-group">
-                <label for="image">Gambar Menu</label>
-                <input type="text" id="image" name="image" required>
-            </div>
-            <div class="form-group">
-                <label for="description">Deskripsi</label>
-                <input type="text" id="description" name="description" required>
-            </div>
-            <div class="form-group">
-                <label for="price">Harga</label>
-                <input type="text" id="price" name="price" required>
-            </div>
-            <div>
-                <button type="submit" class="">Tambahkan</button>
-            </div>
-        </form>
-    </section> -->
-
-    
+        
     <section>
         <h1>Selamat Datang di Dashboard Admin!</h1>
 
